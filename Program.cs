@@ -10,14 +10,14 @@ namespace gbCSharpOne
     {
         static void Main(string[] args)
         {
-            //pointOne();
-            //pointTwo();
+            //PointOne();
+            //PointTwo();
             //PointThree();
             //PointFour();
             PointFive();
         }
 
-        static void pointOne()
+        static void PointOne()
         {
             /* Написать программу «Анкета». Последовательно задаются вопросы(имя, фамилия, возраст, рост, вес).В результате вся информация выводится в одну строчку:
             а) используя склеивание;
@@ -42,7 +42,6 @@ namespace gbCSharpOne
             ");
             string choice = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-           
 
             if(String.Compare(choice, "1") == 0)
             {
@@ -58,7 +57,7 @@ namespace gbCSharpOne
             Console.ReadLine();
         }
 
-        static void pointTwo()
+        static void PointTwo()
         {
             //Ввести вес и рост человека.Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах.
             Console.WriteLine("Введите, пожалуйста, свой вес в кг");
@@ -118,13 +117,10 @@ namespace gbCSharpOne
             string credentials = "Александр Медведев, Химки";
             int strLength = credentials.Length;
             PrintCredentials(credentials, Console.WindowWidth / 2 - strLength / 2, Console.WindowHeight / 2);
-
-
         }
 
         static void PrintCredentials(string credentials, int x, int y)
         {
-            
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(credentials);
