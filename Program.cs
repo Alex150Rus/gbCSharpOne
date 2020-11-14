@@ -10,7 +10,8 @@ namespace gbCSharpOne
     {
         static void Main(string[] args)
         {
-            pointOne();
+            //pointOne();
+            pointTwo();
         }
 
         static void pointOne()
@@ -51,6 +52,18 @@ namespace gbCSharpOne
                 Console.WriteLine($"Вы выбрали используя вывод со знаком $. Привет {name} {surname}! Вам {age}, Ваш рост {height}, Ваш вес {weight}.");
             }
 
+            Console.ReadLine();
+        }
+
+        static void pointTwo()
+        {
+            //Ввести вес и рост человека.Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах.
+            Console.WriteLine("Введите, пожалуйста, свой вес в кг");
+            double weight = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите, пожалуйста, свой рост в метрах");
+            double height = Double.Parse(Console.ReadLine());
+            double imt = weight / (height * height);
+            Console.WriteLine(imt);
             Console.ReadLine();
         }
     }
