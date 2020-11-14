@@ -131,4 +131,19 @@ namespace gbCSharpOne
             Console.ReadLine();
         }
     }
+
+    class Study
+    {
+        //Создать класс с методами, которые могут пригодиться в вашей учебе(Print, Pause).
+        static void Print(string msg, ConsoleColor foregroundcolor)
+        {
+            Console.ForegroundColor = foregroundcolor;
+            Console.WriteLine(msg);
+
+        }
+        static void Pause()
+        {
+            Console.WriteLine("Пауза :)");
+        }
+    }
 }
