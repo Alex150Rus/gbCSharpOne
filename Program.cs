@@ -13,7 +13,8 @@ namespace gbCSharpOne
             //pointOne();
             //pointTwo();
             //PointThree();
-            PointFour();
+            //PointFour();
+            PointFive();
         }
 
         static void pointOne()
@@ -106,7 +107,28 @@ namespace gbCSharpOne
             a = a + b;
             b = a - b;
             a = a - b;
+        }
 
+        static void PointFive()
+        {
+            /* а) Написать программу, которая выводит на экран ваше имя, фамилию и город проживания.
+            б) *Сделать задание, только вывод организовать в центре экрана.
+            в) **Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).
+            */
+            string credentials = "Александр Медведев, Химки";
+            int strLength = credentials.Length;
+            PrintCredentials(credentials, Console.WindowWidth / 2 - strLength / 2, Console.WindowHeight / 2);
+
+
+        }
+
+        static void PrintCredentials(string credentials, int x, int y)
+        {
+            
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(credentials);
+            Console.ReadLine();
         }
     }
 }
