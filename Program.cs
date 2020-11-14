@@ -11,7 +11,8 @@ namespace gbCSharpOne
         static void Main(string[] args)
         {
             //pointOne();
-            pointTwo();
+            //pointTwo();
+            PointThree();
         }
 
         static void pointOne()
@@ -65,6 +66,30 @@ namespace gbCSharpOne
             double imt = weight / (height * height);
             Console.WriteLine(imt);
             Console.ReadLine();
+        }
+        static void PointThree()
+        {
+            /* 
+            *а) Написать программу, которая подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 по формуле 
+            *r = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2).Вывести результат, используя спецификатор формата .2f(с двумя знаками после запятой);
+            б) *Выполнить предыдущее задание, оформив вычисления расстояния между точками в виде метода. 
+            */
+            Console.WriteLine(@"Эта программа подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 по формуле: 
+                r = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2)");
+            Console.WriteLine("Введите координату x первой точки");
+            double x1 = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите координату y первой точки");
+            double y1 = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите координату x второй точки");
+            double x2 = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите координату y второй точки");
+            double y2 = Double.Parse(Console.ReadLine());
+            Console.WriteLine($"Расстояние между точками ({x1},{y1}) и ({x2},{y2}) составляет " + "{0:f2}", CalcDistanceBetween2Points(x1,y1,x2,y2));
+            Console.ReadLine();
+        }
+        static double CalcDistanceBetween2Points(double x1, double y1, double x2, double y2)
+        {
+            return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2-y1, 2));
         }
     }
 }
