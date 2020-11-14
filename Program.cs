@@ -12,7 +12,8 @@ namespace gbCSharpOne
         {
             //pointOne();
             //pointTwo();
-            PointThree();
+            //PointThree();
+            PointFour();
         }
 
         static void pointOne()
@@ -90,6 +91,22 @@ namespace gbCSharpOne
         static double CalcDistanceBetween2Points(double x1, double y1, double x2, double y2)
         {
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2-y1, 2));
+        }
+        static void PointFour()
+        {
+            /* Написать программу обмена значениями двух переменных:
+            а) с использованием третьей переменной;
+            б) *без использования третьей переменной.
+            */
+            int a = 5;
+            int b = 9;
+            int t = a;
+            a = b; b = t;
+
+            a = a + b;
+            b = a - b;
+            a = a - b;
+
         }
     }
 }
