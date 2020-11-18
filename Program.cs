@@ -11,7 +11,23 @@ namespace gbCSharpOne
 
         static void Main(string[] args)
         {
-            PointOneLesTwo();
+            //PointOneLesTwo();
+            GetQtyOfDigits();
+        }
+
+        static void GetQtyOfDigits()
+        {
+            //Написать метод подсчета количества цифр числа.
+            Console.WriteLine("Введи целое число и мы определим сколько в нём цифр");
+            string number = Console.ReadLine();
+            int qtyOfDigits = 0;
+            foreach (char digit in number)
+            {
+                qtyOfDigits++;
+            }
+            Console.WriteLine($"количество цифр: { qtyOfDigits }");
+            Console.ReadLine();
+
         }
 
         static void PointOneLesTwo()
