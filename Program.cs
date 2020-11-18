@@ -9,12 +9,43 @@ namespace gbCSharpOne
     class Program
     {
 
+        public static double weight;
+        public static double height;
+
+
+        //студент Медведев Александр
         static void Main(string[] args)
         {
             //PointOneLesTwo();
             //GetQtyOfDigits();
             //PointThree();
-            PointFour();
+            //PointFour();
+            //PointTwo();
+            PointFive();
+        }
+
+        static void PointFive()
+        {
+            /*а) Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы и сообщает, 
+                нужно ли человеку похудеть, набрать вес или всё в норме.
+            б) *Рассчитать, на сколько кг похудеть или сколько кг набрать для нормализации веса.*/
+
+            double imt = getImt();
+            Console.WriteLine($"Ваш ИМТ: {imt}");
+            Console.ReadLine();
+            if (imt > 25)
+            {
+                Console.WriteLine("Ваш имт выше нормы, надо худеть");
+                Console.WriteLine($"Вам нужно похудеть на: { Program.weight - getWeight(25)} кг");
+            } else if (imt < 18.5)
+            {
+                Console.WriteLine("Ваш имт ниже нормы, надо немного набрать вес");
+                Console.WriteLine($"Вам нужно набрать: { getWeight(18.5) - Program.weight} кг");
+            } else
+            {
+                Console.WriteLine("Ваш имт в норме");
+            }
+            Console.ReadLine();
         }
 
         static void PointFour()
@@ -87,6 +118,12 @@ namespace gbCSharpOne
             Console.ReadLine();
         }
 
+        static double getWeight(double imt)
+        {
+            // имт = вес / h2
+            return imt * Math.Pow(Program.height, 2);
+        }
+
         static int GetMaxOfThree(int a, int b, int c)
         {
             int max;
@@ -154,17 +191,15 @@ namespace gbCSharpOne
         //        Console.ReadLine();
         //    }
 
-        //    static void PointTwo()
-        //    {
-        //        //Ввести вес и рост человека.Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах.
-        //        Console.WriteLine("Введите, пожалуйста, свой вес в кг");
-        //        double weight = Double.Parse(Console.ReadLine());
-        //        Console.WriteLine("Введите, пожалуйста, свой рост в метрах");
-        //        double height = Double.Parse(Console.ReadLine());
-        //        double imt = weight / (height * height);
-        //        Console.WriteLine(imt);
-        //        Console.ReadLine();
-        //    }
+        static double getImt()
+        {
+            //Ввести вес и рост человека.Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах.
+            Console.WriteLine("Введите, пожалуйста, свой вес в кг");
+            double weight = Program.weight = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите, пожалуйста, свой рост в метрах");
+            double height = Program.height = Convert.ToDouble(Console.ReadLine());
+            return weight / (height * height);
+        }
         //    static void PointThree()
         //    {
         //        /* 
