@@ -12,7 +12,19 @@ namespace gbCSharpOne
         static void Main(string[] args)
         {
             //PointOneLesTwo();
-            GetQtyOfDigits();
+            //GetQtyOfDigits();
+            PointThree();
+        }
+
+        static void PointThree() {
+            //С клавиатуры вводятся числа, пока не будет введен 0.Подсчитать сумму всех нечетных положительных чисел.
+            int stopNumber;
+            do {
+                Console.WriteLine("Введите целое число");
+                stopNumber = Convert.ToInt32(Console.ReadLine()); 
+            } while (stopNumber != 0);
+            Console.WriteLine("Конец");
+            Console.ReadLine();
         }
 
         static void GetQtyOfDigits()
