@@ -13,7 +13,39 @@ namespace gbCSharpOne
         {
             //PointOneLesTwo();
             //GetQtyOfDigits();
-            PointThree();
+            //PointThree();
+            PointFour();
+        }
+
+        static void PointFour()
+        {
+            /* Реализовать метод проверки логина и пароля. На вход метода подается логин и пароль.На выходе истина, если прошел авторизацию, 
+            и ложь, если не прошел(Логин: root, Password: GeekBrains). Используя метод проверки логина и пароля, написать программу: 
+            пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает.С помощью цикла do while ограничить 
+            ввод пароля тремя попытками. */
+
+            int tries = 0;
+            string login, password;
+            do {
+                Console.WriteLine("Введите Логин");
+                login = Console.ReadLine();
+                Console.WriteLine("Введите Пароль");
+                password = Console.ReadLine();
+                tries++;
+            } while (tries < 3 && !CheckCredentials(login, password));
+            if(CheckCredentials(login, password))
+            {
+                Console.WriteLine($"Добро пожаловать. Количество попыток: { tries }");
+            } else
+            {
+                Console.WriteLine("Посторонним вход запрещён");
+            }
+            Console.ReadLine();
+        }
+
+        static bool CheckCredentials(string login, string password)
+        {
+            return login == "root" && password == "GeekBrains";
         }
 
         static void PointThree() {
