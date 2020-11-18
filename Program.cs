@@ -11,11 +11,37 @@ namespace gbCSharpOne
 
         static void Main(string[] args)
         {
-            //PointOne();
-            //PointTwo();
-            //PointThree();
-            //PointFour();
-            PointFive();
+            PointOneLesTwo();
+        }
+
+        static void PointOneLesTwo()
+        {
+
+            Console.WriteLine("дай мне первое целое число");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("дай мне второе целое число");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("дай мне третье целое число");
+            int c = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Максимальное число: { GetMaxOfThree(a, b, c)}");
+            Console.ReadLine();
+        }
+
+        static int GetMaxOfThree(int a, int b, int c)
+        {
+            int max;
+            if(c > a && c > b)
+            {
+                max = c;
+            } else if (a > b)
+            {
+                max = a;
+            } else
+            {
+                max = b;
+            }
+
+            return max;
         }
 
         #region Lesson 1 HW
