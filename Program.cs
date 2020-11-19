@@ -22,8 +22,49 @@ namespace gbCSharpOne
             //PointFour();
             //PointTwo();
             //PointFive();
-            PointSix();
+            //PointSix();
+            PointSeven();
         }
+
+        static void PointSeven()
+        {
+            //Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b)
+            Console.WriteLine("Введите число а");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ведите число b");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(GetNumbersFromAtoB(a, b));
+            Console.WriteLine($"Сумма чисел от { a } до {b}: { GetSumOfNumbersFromAtoB(a, b) }");
+            Console.ReadLine();
+        }
+
+        static string GetNumbersFromAtoB(int a, int b)
+        {
+            if (a>b)
+            {
+                return "";
+            } else if(a < b)
+            {
+               return a.ToString() + ' ' + GetNumbersFromAtoB(++a, b);
+            }
+            return "";
+
+        }
+
+        static int GetSumOfNumbersFromAtoB(int a, int b)
+        {
+            if (a > b)
+            {
+                return a + GetSumOfNumbersFromAtoB(--a, b);
+            }
+            else if (a < b)
+            {
+                return a + GetSumOfNumbersFromAtoB(++a, b);
+            }
+            return 0;
+
+        }
+
 
         static void PointSix()
         {
@@ -43,6 +84,8 @@ namespace gbCSharpOne
             var result = DateTime.Now - start;
             Console.WriteLine($"Программа выполнилась за { result }, количество хороших чисел: {qty}");
             Console.ReadLine();
+
+            //программа выполнилась за 00:01:46.4873903, количество хороших чисел: 61574509
 
         }
 
