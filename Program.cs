@@ -21,7 +21,29 @@ namespace gbCSharpOne
             //PointThree();
             //PointFour();
             //PointTwo();
-            PointFive();
+            //PointFive();
+            PointSix();
+        }
+
+        static void PointSix()
+        {
+            /*Написать программу подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000. «Хорошим» называется число, 
+            которое делится на сумму своих цифр.Реализовать подсчёт времени выполнения программы, используя структуру DateTime.*/
+            DateTime start = DateTime.Now;
+
+            long qty = 0;
+            for (int i = 1; i < 1000000000; i++)
+            {
+                if (i % Sum(i) == 0)
+                {
+                    qty++;
+                }
+            }
+
+            var result = DateTime.Now - start;
+            Console.WriteLine($"Программа выполнилась за { result }, количество хороших чисел: {qty}");
+            Console.ReadLine();
+
         }
 
         static void PointFive()
@@ -103,6 +125,17 @@ namespace gbCSharpOne
             Console.WriteLine($"количество цифр: { qtyOfDigits }");
             Console.ReadLine();
 
+        }
+
+        static long Sum(long a)
+        {
+            long s = 0;
+            while (a > 0)
+            {
+                s = s + a % 10;
+                a = a / 10;
+            }
+            return s;
         }
 
         static void PointOneLesTwo()
