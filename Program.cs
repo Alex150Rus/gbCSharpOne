@@ -9,13 +9,212 @@ namespace gbCSharpOne
     class Program
     {
 
+        public static double weight;
+        public static double height;
+
+
+        //студент Медведев Александр
         static void Main(string[] args)
         {
-            //PointOne();
-            //PointTwo();
+            //PointOneLesTwo();
+            //GetQtyOfDigits();
             //PointThree();
             //PointFour();
-            PointFive();
+            //PointTwo();
+            //PointFive();
+            //PointSix();
+            PointSeven();
+        }
+
+        static void PointSeven()
+        {
+            //Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b)
+            Console.WriteLine("Введите число а");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ведите число b");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(GetNumbersFromAtoB(a, b));
+            Console.WriteLine($"Сумма чисел от { a } до {b}: { GetSumOfNumbersFromAtoB(a, b) }");
+            Console.ReadLine();
+        }
+
+        static string GetNumbersFromAtoB(int a, int b)
+        {
+            if (a>b)
+            {
+                return "";
+            } else if(a < b)
+            {
+               return a.ToString() + ' ' + GetNumbersFromAtoB(++a, b);
+            }
+            return "";
+
+        }
+
+        static int GetSumOfNumbersFromAtoB(int a, int b)
+        {
+            if (a > b)
+            {
+                return a + GetSumOfNumbersFromAtoB(--a, b);
+            }
+            else if (a < b)
+            {
+                return a + GetSumOfNumbersFromAtoB(++a, b);
+            }
+            return 0;
+
+        }
+
+
+        static void PointSix()
+        {
+            /*Написать программу подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000. «Хорошим» называется число, 
+            которое делится на сумму своих цифр.Реализовать подсчёт времени выполнения программы, используя структуру DateTime.*/
+            DateTime start = DateTime.Now;
+
+            long qty = 0;
+            for (int i = 1; i < 1000000000; i++)
+            {
+                if (i % Sum(i) == 0)
+                {
+                    qty++;
+                }
+            }
+
+            var result = DateTime.Now - start;
+            Console.WriteLine($"Программа выполнилась за { result }, количество хороших чисел: {qty}");
+            Console.ReadLine();
+
+            //программа выполнилась за 00:01:46.4873903, количество хороших чисел: 61574509
+
+        }
+
+        static void PointFive()
+        {
+            /*а) Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы и сообщает, 
+                нужно ли человеку похудеть, набрать вес или всё в норме.
+            б) *Рассчитать, на сколько кг похудеть или сколько кг набрать для нормализации веса.*/
+
+            double imt = getImt();
+            Console.WriteLine($"Ваш ИМТ: {imt}");
+            Console.ReadLine();
+            if (imt > 25)
+            {
+                Console.WriteLine("Ваш имт выше нормы, надо худеть");
+                Console.WriteLine($"Вам нужно похудеть на: { Program.weight - getWeight(25)} кг");
+            } else if (imt < 18.5)
+            {
+                Console.WriteLine("Ваш имт ниже нормы, надо немного набрать вес");
+                Console.WriteLine($"Вам нужно набрать: { getWeight(18.5) - Program.weight} кг");
+            } else
+            {
+                Console.WriteLine("Ваш имт в норме");
+            }
+            Console.ReadLine();
+        }
+
+        static void PointFour()
+        {
+            /* Реализовать метод проверки логина и пароля. На вход метода подается логин и пароль.На выходе истина, если прошел авторизацию, 
+            и ложь, если не прошел(Логин: root, Password: GeekBrains). Используя метод проверки логина и пароля, написать программу: 
+            пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает.С помощью цикла do while ограничить 
+            ввод пароля тремя попытками. */
+
+            int tries = 0;
+            string login, password;
+            do {
+                Console.WriteLine("Введите Логин");
+                login = Console.ReadLine();
+                Console.WriteLine("Введите Пароль");
+                password = Console.ReadLine();
+                tries++;
+            } while (tries < 3 && !CheckCredentials(login, password));
+            if(CheckCredentials(login, password))
+            {
+                Console.WriteLine($"Добро пожаловать. Количество попыток: { tries }");
+            } else
+            {
+                Console.WriteLine("Посторонним вход запрещён");
+            }
+            Console.ReadLine();
+        }
+
+        static bool CheckCredentials(string login, string password)
+        {
+            return login == "root" && password == "GeekBrains";
+        }
+
+        static void PointThree() {
+            //С клавиатуры вводятся числа, пока не будет введен 0.Подсчитать сумму всех нечетных положительных чисел.
+            int stopNumber;
+            do {
+                Console.WriteLine("Введите целое число");
+                stopNumber = Convert.ToInt32(Console.ReadLine()); 
+            } while (stopNumber != 0);
+            Console.WriteLine("Конец");
+            Console.ReadLine();
+        }
+
+        static void GetQtyOfDigits()
+        {
+            //Написать метод подсчета количества цифр числа.
+            Console.WriteLine("Введи целое число и мы определим сколько в нём цифр");
+            string number = Console.ReadLine();
+            int qtyOfDigits = 0;
+            foreach (char digit in number)
+            {
+                qtyOfDigits++;
+            }
+            Console.WriteLine($"количество цифр: { qtyOfDigits }");
+            Console.ReadLine();
+
+        }
+
+        static long Sum(long a)
+        {
+            long s = 0;
+            while (a > 0)
+            {
+                s = s + a % 10;
+                a = a / 10;
+            }
+            return s;
+        }
+
+        static void PointOneLesTwo()
+        {
+
+            Console.WriteLine("дай мне первое целое число");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("дай мне второе целое число");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("дай мне третье целое число");
+            int c = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Максимальное число: { GetMaxOfThree(a, b, c)}");
+            Console.ReadLine();
+        }
+
+        static double getWeight(double imt)
+        {
+            // имт = вес / h2
+            return imt * Math.Pow(Program.height, 2);
+        }
+
+        static int GetMaxOfThree(int a, int b, int c)
+        {
+            int max;
+            if(c > a && c > b)
+            {
+                max = c;
+            } else if (a > b)
+            {
+                max = a;
+            } else
+            {
+                max = b;
+            }
+
+            return max;
         }
 
         #region Lesson 1 HW
@@ -68,17 +267,15 @@ namespace gbCSharpOne
         //        Console.ReadLine();
         //    }
 
-        //    static void PointTwo()
-        //    {
-        //        //Ввести вес и рост человека.Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах.
-        //        Console.WriteLine("Введите, пожалуйста, свой вес в кг");
-        //        double weight = Double.Parse(Console.ReadLine());
-        //        Console.WriteLine("Введите, пожалуйста, свой рост в метрах");
-        //        double height = Double.Parse(Console.ReadLine());
-        //        double imt = weight / (height * height);
-        //        Console.WriteLine(imt);
-        //        Console.ReadLine();
-        //    }
+        static double getImt()
+        {
+            //Ввести вес и рост человека.Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах.
+            Console.WriteLine("Введите, пожалуйста, свой вес в кг");
+            double weight = Program.weight = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите, пожалуйста, свой рост в метрах");
+            double height = Program.height = Convert.ToDouble(Console.ReadLine());
+            return weight / (height * height);
+        }
         //    static void PointThree()
         //    {
         //        /* 
